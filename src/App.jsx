@@ -11,7 +11,7 @@ import victory from "./victory.png";
 
 function App() {
   const [emoji, setEmoji] = useState(null);
-  const images = { thumbs_up: thumbs_up, victory: victory };
+  const images = { thumbs_up: thumbs_up, victory: victory};
   const [dimensions, setDimensions] = useState(getResponsiveStyles());
 
   useEffect(() => {
@@ -74,8 +74,10 @@ function App() {
       detect(net);
     }, 100);
 
+    // Return the cleanup function
     return () => clearInterval(intervalId);
   };
+
 
   const detect = async (net) => {
     if (
@@ -110,13 +112,16 @@ function App() {
             (prediction) => prediction.confidence
           );
           const maxConfidence = confidence.indexOf(Math.max(...confidence));
-
-          if (
-            gesture.gestures[maxConfidence] &&
-            gesture.gestures[maxConfidence].score > 8
-          ) {
-            setEmoji(gesture.gestures[maxConfidence].name);
-            console.log(emoji);
+          console.log("Confidence score:", gesture.gestures[0].score);
+          if (gesture.gestures[0].score>8) {
+            console.log("Detected gesture:", gesture.gestures[0].name);
+            console.log("Confidence score:", gesture.gestures[0].score);
+      
+              setEmoji(gesture.gestures[0].name);
+          }
+             else {
+            console.log("No valid gesture detected");
+            setEmoji(null);
           }
         }
       }
@@ -139,9 +144,16 @@ function App() {
           <img
             src={images[emoji]}
             alt={emoji}
-            style={{ ...getResponsiveStyles(), height: "100px", width: "100px",backgroundColor:"white" }}
+            style={{
+              ...getResponsiveStyles(),
+              height: "100px",
+              width: "100px",
+              right: "50px",  // Align to the right edge of the screen
+              left: "auto",  // Reset left positioning
+              transform: "translateY(-50%)",  // Adjust vertical centering if necessary
+            }}
           />
-        ):""}
+        ):(<></>)}
         <ParticleBg />
       </div>
     </>

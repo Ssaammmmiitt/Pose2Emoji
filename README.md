@@ -1,7 +1,10 @@
-
+#### NOTE:WAIT FOR 5-10 SECONDS FOR MODEL TO LOAD PROPERLY ON [ DEPLOYMENT ](https://pose2emoji.vercel.app/).
 # Pose2Emoji
 
 Pose2Emoji is a web application that uses TensorFlow.js and the PoseNet model to detect human poses in real-time from a webcam feed and translate these poses into corresponding emojis.
+![emoji](https://github.com/Ssaammmmiitt/Pose2Emoji/assets/149798380/fa419df0-058b-41c3-949a-91a7285fc3ae)
+![emoji2](https://github.com/Ssaammmmiitt/Pose2Emoji/assets/149798380/d61fa554-6a24-43eb-b339-1c716b877b2f)
+
 
 ## Table of Contents
 
@@ -21,7 +24,7 @@ Pose2Emoji is a web application that uses TensorFlow.js and the PoseNet model to
 
 ## Demo
 
-Check out a live demo of the application [here](https://your-demo-link.com).
+Check out a live demo of the application [here](https://pose2emoji.vercel.app/).
 
 ## Installation
 
@@ -46,7 +49,7 @@ Check out a live demo of the application [here](https://your-demo-link.com).
    npm run dev
    ```
 
-2. Open your browser and navigate to `http://localhost:3000`.
+2. Open your browser and navigate to `http://localhost:5173`.
 
 3. Allow access to your webcam when prompted.
 
